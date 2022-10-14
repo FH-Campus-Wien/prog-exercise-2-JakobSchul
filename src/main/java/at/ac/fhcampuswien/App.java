@@ -29,7 +29,7 @@ public class App {
                 if (biggestNum != 0) {
 
                     //                    String formattedString = String.format("%.02f", biggestNum);
-                    System.out.printf("The largest number is " + "%.2f" +System.lineSeparator(), biggestNum);
+                    System.out.printf("The largest number is " + "%.2f" + System.lineSeparator(), biggestNum);
                     return;
                 }
                 System.out.println("No number entered.");
@@ -152,17 +152,29 @@ public class App {
 
     //todo Task 6
     public void happyNumbers() {
-        //     int summe = 0;
-        //   int nummer = 0;
+        int summe = 0;
+        int speicher = 0;
+        int num;
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.print("n: ");        //"print" statt "println" weil ich keinen Umbruch will
+        num = scanner1.nextInt();
 
-        // while (nummer != 1) {
+        while (summe != 1 && summe!=4) {
+            while (num > 0) {
+                speicher = num % 10;    //Modulo = Rest aus division mit "10" in dem Beispiel
+                summe = summe + (speicher * speicher);
+                num = num / 10;
 
-        //     int remainder = nummer % 10;
-        //    summe = summe + (remainder * remainder);
-        //  nummer = nummer / 10;
-
-
-        //}
+            }
+            if (summe == 1) {
+                System.out.println("Happy number!");
+            } else if (summe == 4) {
+                System.out.println("Sad number!");
+            } else {
+                num = summe;
+                summe = 0;
+            }
+        }
     }
 
     public static void main(String[] args) {
